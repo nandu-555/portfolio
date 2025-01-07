@@ -1,100 +1,49 @@
-/* General Reset */
-body, html {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    overflow: hidden;
-    font-family: 'Arial', sans-serif;
-    color: #ffffff;
-    background: linear-gradient(135deg, #000000, #000000);
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #111827;
+}
+
+.skill-bar {
+  background: #333;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-top: 4px;
+  height: 25px;
+}
+
+.skill-bar span {
+  display: block;
+  height: 100%;
+}
+
+.skill-bar span.web-dev {
+  width: 70%;
+  background: linear-gradient(to right, #4caf50, #81c784);
+}
+
+.skill-bar span.cybersecurity {
+  width: 30%;
+  background: linear-gradient(to right, #2196f3, #64b5f6);
+}
+
+.project-card {
+  background: #222;
+  border: 1px solid #444;
+  border-radius: 8px;
+  padding: 16px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#mute-btn { 
+  position: fixed; 
+  top: 10px; 
+  right: 10px; 
+  background-color: #6B46C1; /* Equivalent to bg-purple-500 */ 
+  color: white; 
+  padding: 10px 20px; /* Equivalent to px-4 py-2 */ 
+  border-radius: 0.5rem; /* Equivalent to rounded */ 
+  box-shadow: 0px 4px 6px -1px rgba(0, 0, 0, 0.1), 0px 2px 4px -1px rgba(0, 0, 0, 0.06);  /* Equivalent to shadow-md */ } 
+  
+  #mute-btn:hover { 
+    background-color: #5A37A7; /* Equivalent to hover:bg-purple-600 */ 
   }
-  
-  /* Particle Background */
-  #particles-js {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    z-index: 5;
-  }
-  
-  /* Content Container */
-  .container {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 2; /* Ensures content appears above particles */
-    text-align: center;
-  }
-  
-  /* Content Styling */
-  .content {
-    max-width: 600px;
-    /* background: rgba(0, 0, 0, 0.5); Semi-transparent background */
-    padding: 20px 30px;
-    border-radius: 10px;
-    /* box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3); */
-  }
-  
-  .content h1 {
-    font-size: 2.5rem;
-    margin-bottom: 15px;
-    line-height: 1.3;
-  }
-  
-  .content p {
-    font-size: 1.2rem;
-    margin-bottom: 20px;
-    line-height: 1.6;
-  }
-  
-  /* Links Section */
-  .links {
-    margin: 20px 0;
-  }
-  
-  .links a {
-    text-decoration: none;
-    color: #ffffff;
-    background: #f3129d;
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-size: 1rem;
-    margin: 0 10px;
-    transition: all 0.3s ease-in-out;
-  }
-  
-  .links a:hover {
-    background: #e67e22;
-    transform: scale(1.1);
-  }
-  
-  /* Contact Information */
-  .contact p {
-    font-size: 1rem;
-    margin: 5px 0;
-    font-weight: bold;
-  }
-  
-  /* Responsive Design */
-  @media (max-width: 768px) {
-    .content h1 {
-      font-size: 2rem;
-    }
-  
-    .content p {
-      font-size: 1rem;
-    }
-  
-    .links a {
-      font-size: 0.9rem;
-      margin: 0 5px;
-    }
-  
-    .contact p {
-      font-size: 0.9rem;
-    }
-  }
-  

@@ -1,79 +1,121 @@
-// // script.js
+const music = document.getElementById("bg-music");
+const muteBtn = document.getElementById("mute-btn");
+const muteIcon = document.getElementById("mute-icon");
 
-// const canvas = document.getElementById("background");
-// const ctx = canvas.getContext("2d");
+muteBtn.addEventListener("click", () => {
+    if (music.muted) {
+        music.muted = false;
+        muteIcon.classList.remove("fa-volume-mute");
+        muteIcon.classList.add("fa-volume-up");
+    } else {
+        music.muted = true;
+        muteIcon.classList.remove("fa-volume-up");
+        muteIcon.classList.add("fa-volume-mute");
+    }
+});
 
-// canvas.width = window.innerWidth;
-// canvas.height = window.innerHeight;
-
-// let particles = [];
-
-// // Particle class
-// class Particle {
-//   constructor(x, y, size, color, velocityX, velocityY) {
-//     this.x = x;
-//     this.y = y;
-//     this.size = size;
-//     this.color = color;
-//     this.velocityX = velocityX;
-//     this.velocityY = velocityY;
-//   }
-
-//   draw() {
-//     ctx.beginPath();
-//     ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-//     ctx.fillStyle = this.color;
-//     ctx.fill();
-//   }
-
-//   update() {
-//     this.x += this.velocityX;
-//     this.y += this.velocityY;
-
-//     if (this.x > canvas.width || this.x < 0) this.velocityX *= -1;
-//     if (this.y > canvas.height || this.y < 0) this.velocityY *= -1;
-//   }
-// }
-
-// // Initialize particles
-// function init() {
-//   particles = [];
-//   for (let i = 0; i < 50; i++) {
-//     let size = Math.random() * 5 + 3;
-//     let x = Math.random() * canvas.width;
-//     let y = Math.random() * canvas.height;
-//     let velocityX = Math.random() * 2 - 1;
-//     let velocityY = Math.random() * 2 - 1;
-//     let color = `rgba(${Math.random() * 255}, ${Math.random() * 255}, ${Math.random() * 255}, 0.5)`;
-
-//     particles.push(new Particle(x, y, size, color, velocityX, velocityY));
-//   }
-// }
-
-// // Animate particles
-// function animate() {
-//   ctx.clearRect(0, 0, canvas.width, canvas.height);
-//   particles.forEach((particle) => {
-//     particle.update();
-//     particle.draw();
-//   });
-//   requestAnimationFrame(animate);
-// }
-
-// // Interactivity
-// canvas.addEventListener("mousemove", (e) => {
-//   particles.push(
-//     new Particle(
-//       e.x,
-//       e.y,
-//       Math.random() * 5 + 3,
-//       "rgba(255, 255, 255, 0.8)",
-//       Math.random() * 2 - 1,
-//       Math.random() * 2 - 1
-//     )
-//   );
-// });
-
-// // Start
-// init();
-// animate();
+// tsParticles Configuration
+particlesJS("particles-js", {
+    "particles": {
+      "number": {
+        "value": 80,
+        "density": {
+          "enable": true,
+          "value_area": 800
+        }
+      },
+      "color": {
+        "value": "#ffffff"
+      },
+      "shape": {
+        "type": "circle",
+        "stroke": {
+          "width": 0,
+          "color": "#000000"
+        },
+        "polygon": {
+          "nb_sides": 5
+        }
+      },
+      "opacity": {
+        "value": 0.5,
+        "random": false,
+        "anim": {
+          "enable": false,
+          "speed": 0.5,
+          "opacity_min": 0.1,
+          "sync": false
+        }
+      },
+      "size": {
+        "value": 5,
+        "random": true,
+        "anim": {
+          "enable": false,
+          "speed": 40,
+          "size_min": 0.1,
+          "sync": false
+        }
+      },
+      "line_linked": {
+        "enable": true,
+        "distance": 150,
+        "color": "#ffffff",
+        "opacity": 0.4,
+        "width": 1
+      },
+      "move": {
+        "enable": true,
+        "speed": 2,
+        "direction": "none",
+        "random": false,
+        "straight": false,
+        "out_mode": "out",
+        "attract": {
+          "enable": false,
+          "rotateX": 600,
+          "rotateY": 1200
+        }
+      }
+    },
+    "interactivity": {
+      "detect_on": "canvas",
+      "events": {
+        "onhover": {
+          "enable": true,
+          "mode": "grab"
+        },
+        "onclick": {
+          "enable": true,
+          "mode": "push"
+        },
+        "resize": true
+      },
+      "modes": {
+        "grab": {
+          "distance": 140,
+          "line_linked": {
+            "opacity": 1
+          }
+        },
+        "bubble": {
+          "distance": 400,
+          "size": 40,
+          "duration": 2,
+          "opacity": 8,
+          "speed": 3
+        },
+        "repulse": {
+          "distance": 200,
+          "duration": 0.4
+        },
+        "push": {
+          "particles_nb": 3
+        },
+        "remove": {
+          "particles_nb": 2
+        }
+      }
+    },
+    "retina_detect": true
+  });

@@ -1,37 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Animated UI</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nandu A - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
-<body>
-  <!-- Particle Background -->
-  <div id="particles-js"></div>
+</head>
+<body class="bg-gray-900 text-white relative">
+    <!-- Particles Background -->
+    <div id="particles-js"></div>
 
-  <!-- Content Section -->
-  <div class="container">
-    <div class="content">
-      <h1>Hello!<br>I'm Nandu A</h1>
-      <p>I just want to drink coffee,<br>create stuff, and sleep.</p>
-      
-      <!-- Navigation Links -->
-      <div class="links">
-        <a href="#blog">Blog</a>
-        <a href="#portfolio">Portfolio</a>
-      </div>
-      
-      <!-- Contact Details -->
-      <div class="contact">
-        <p>+91 92493 06354</p>
-        <p>nanduajayakumar5@gmail.com</p>
-      </div>
-    </div>
-  </div>
+    <button id="mute-btn" class="absolute top-4 right-4 bg-purple-500 text-white p-3 rounded-full shadow-md hover:bg-purple-600 z-20">
+        <i id="mute-icon" class="fas fa-volume-up"></i>
+    </button>
 
-  <!-- Scripts -->
-  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-  <script src="particles-config.js"></script>
+    <!-- Header -->
+    <header class="relative z-10 bg-gradient-to-r from-blue-500 to-purple-600 text-center py-10 shadow-lg">
+        <div class="container mx-auto">
+            <img src="images/nandu-profile.png" alt="Nandu A" class="rounded-full mx-auto w-32 h-32 mb-4 border-4 border-white shadow-md">
+            <h1 class="text-5xl font-extrabold animate__animated animate__fadeInDown">Nandu A</h1>
+            <p class="text-xl mt-2 font-light animate__animated animate__fadeInUp">B.Tech Graduate | Tech Enthusiast</p>
+        </div>
+    </header>
+
+    <!-- Background Music -->
+        <audio id="bg-music" autoplay loop>
+            <source src="Hans Zimmer - No Time for Caution.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+        
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-6 py-10 relative z-10">
+        <!-- About Me -->
+        <section id="about" class="mb-16 text-center">
+            <h2 class="text-4xl font-bold text-blue-400 mb-6">About Me</h2>
+            <p class="text-gray-300 text-lg">
+                Hello, I am Nandu A, a B.Tech graduate passionate about technology. I enjoy engaging in tech-related activities and exploring innovative solutions.
+            </p>
+        </section>
+
+        <!-- Skills -->
+        <section id="skills" class="mb-16">
+            <h2 class="text-4xl font-bold text-blue-400 mb-6 text-center">My Skills</h2>
+            <div class="space-y-6">
+                <div>
+                    <p class="text-gray-200 font-semibold text-center">Web Development (70%)</p>
+                    <div class="skill-bar animate__animated animate__fadeInLeft">
+                        <span class="web-dev"></span>
+                    </div>
+                </div>
+                <div>
+                    <p class="text-gray-200 font-semibold text-center">Cybersecurity (30%)</p>
+                    <div class="skill-bar animate__animated animate__fadeInLeft">
+                        <span class="cybersecurity"></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects -->
+        <section id="projects" class="mb-16">
+            <h2 class="text-4xl font-bold text-blue-400 mb-6 text-center">Projects</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                <div class="project-card hover:bg-purple-600 hover:scale-105 transition-transform">
+                    <h3 class="text-2xl font-bold">Portfolio Website</h3>
+                    <p>A personal portfolio showcasing my skills and projects.</p>
+                    <a href="https://github.com/your-username/project1" class="text-blue-300 hover:underline">
+                        View Project
+                    </a>
+                </div>
+                <div class="project-card hover:bg-purple-600 hover:scale-105 transition-transform">
+                    <h3 class="text-2xl font-bold">Cybersecurity Tool</h3>
+                    <p>A tool designed to analyze and protect against common cyber threats.</p>
+                    <a href="https://github.com/your-username/project2" class="text-blue-300 hover:underline">
+                        View Project
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section id="contact" class="mb-16">
+            <h2 class="text-4xl font-bold text-blue-400 mb-6 text-center">Contact Me</h2>
+            <form class="space-y-4">
+                <input type="text" placeholder="Your Name" class="form-field w-full p-3 border rounded">
+                <input type="email" placeholder="Your Email" class="form-field w-full p-3 border rounded">
+                <textarea placeholder="Your Message" rows="5" class="form-field w-full p-3 border rounded"></textarea>
+                <button type="submit" class="bg-purple-500 text-white px-6 py-3 rounded hover:bg-purple-600 shadow-lg">
+                    Send
+                </button>
+            </form>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-center py-4">
+        <p>&copy; 2025 Nandu A. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
