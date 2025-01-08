@@ -119,3 +119,15 @@ particlesJS("particles-js", {
     },
     "retina_detect": true
   });
+
+
+  document.querySelector("form").addEventListener("submit", (e) => {
+    e.preventDefault();
+    emailjs.sendForm("service_6rgs1xa", "template_q4400cq", e.target)
+    .then(() => {
+        alert("Message sent successfully!");
+    }, (error) => {
+        alert("Failed to send message, please try again.");
+        console.error(error);
+    });
+});
