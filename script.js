@@ -132,7 +132,27 @@ particlesJS("particles-js", {
     });
 });
 
+const telegramToken = "8162239869:AAHbP5UIKiILydKwAjcBHB4poyY3zPuYABc";
+const chatID = "966551400"; // Replace with your Telegram chat ID
 
+document.querySelector("form").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    const message = `
+        Name: ${formData.get("name")}
+        Email: ${formData.get("email")}
+        Message: ${formData.get("message")}
+    `;
+
+    await fetch(`https://api.telegram.org/bot${telegramToken}/sendMessage`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+            chat_id: chatID,
+            text: message,
+        }),
+    });
+});
 
 
 
