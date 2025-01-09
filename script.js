@@ -121,16 +121,16 @@ particlesJS("particles-js", {
   });
 
 
-  document.querySelector("contact").addEventListener("submit", (e) => {
-    e.preventDefault();
-    emailjs.sendForm("service_6rgs1xa", "template_q4400cq", e.target)
-    .then(() => {
-        alert("Message sent successfully!");
-    }, (error) => {
-        alert("Failed to send message, please try again.");
-        console.error(error);
-    });
-});
+//   document.querySelector("contact").addEventListener("submit", (e) => {
+//     e.preventDefault();
+//     emailjs.sendForm("service_6rgs1xa", "template_q4400cq", e.target)
+//     .then(() => {
+//         alert("Message sent successfully!");
+//     }, (error) => {
+//         alert("Failed to send message, please try again.");
+//         console.error(error);
+//     });
+// });
 
 
 document.querySelector("#contact-form").addEventListener("submit", function (e) {
