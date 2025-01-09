@@ -139,30 +139,30 @@ document.querySelector("#contact-form").addEventListener("submit", function (e) 
 });
 
 
-document.querySelector("#contact-form").addEventListener("submit", function (e) {
-  e.preventDefault();
+// document.querySelector("#contact-form").addEventListener("submit", function (e) {
+//   e.preventDefault();
 
-  const chatID = "8162239869:AAHbP5UIKiILydKwAjcBHB4poyY3zPuYABc"; // Replace with your chat ID
-  const botToken = "966551400"; // Replace with your bot token
-  const message = `
-      Name: ${document.querySelector("#name").value}
-      Email: ${document.querySelector("#email").value}
-      Message: ${document.querySelector("#message").value}
-  `;
+//   const chatID = "8162239869:AAHbP5UIKiILydKwAjcBHB4poyY3zPuYABc"; // Replace with your chat ID
+//   const botToken = "966551400"; // Replace with your bot token
+//   const message = `
+//       Name: ${document.querySelector("#name").value}
+//       Email: ${document.querySelector("#email").value}
+//       Message: ${document.querySelector("#message").value}
+//   `;
 
-  fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ chat_id: chatID, text: message }),
-  })
-  .then((response) => response.json())
-  .then((data) => {
-      console.log("Message sent to Telegram:", data);
-  })
-  .catch((error) => {
-      console.error("Failed to send message to Telegram:", error);
-  });
-});
+//   fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+//       method: "POST",
+//       headers: { "Content-Type": "application/json" },
+//       body: JSON.stringify({ chat_id: chatID, text: message }),
+//   })
+//   .then((response) => response.json())
+//   .then((data) => {
+//       console.log("Message sent to Telegram:", data);
+//   })
+//   .catch((error) => {
+//       console.error("Failed to send message to Telegram:", error);
+//   });
+// });
 
 
 
