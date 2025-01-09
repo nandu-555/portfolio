@@ -121,7 +121,7 @@ particlesJS("particles-js", {
   });
 
 
-  document.querySelector("form").addEventListener("submit", (e) => {
+  document.querySelector("contact").addEventListener("submit", (e) => {
     e.preventDefault();
     emailjs.sendForm("service_6rgs1xa", "template_q4400cq", e.target)
     .then(() => {
@@ -132,77 +132,123 @@ particlesJS("particles-js", {
     });
 });
 
-const telegramToken = "8162239869:AAHbP5UIKiILydKwAjcBHB4poyY3zPuYABc";
-const chatID = "966551400"; // Replace with your Telegram chat ID
 
-document.querySelector("form").addEventListener("submit", async (e) => {
-    e.preventDefault();
-    const formData = new FormData(e.target);
-    const message = `
-        Name: ${formData.get("name")}
-        Email: ${formData.get("email")}
-        Message: ${formData.get("message")}
-    `;
+document.querySelector("#contact-form").addEventListener("submit", function (e) {
+  e.preventDefault();
 
-    await fetch(`https://api.telegram.org/bot${telegramToken}/sendMessage`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-            chat_id: chatID,
-            text: message,
-        }),
-    });
+  emailjs.send("service_6rgs1xa", "template_q4400cq", {
+      name: document.querySelector("#name").value,
+      email: document.querySelector("#email").value,
+      message: document.querySelector("#message").value,
+  })
+  .then((response) => {
+      console.log("Email sent successfully!", response.status, response.text);
+  })
+  .catch((error) => {
+      console.error("Failed to send email:", error);
+  });
 });
 
-async function trackVisitor() {
-  // Fetch visitor IP details
-  const response = await fetch("https://ipinfo.io?token=YOUR_IPINFO_TOKEN"); // Replace with your IPInfo token
-  const data = await response.json();
 
-  // Collect visitor details
-  const visitorDetails = {
-      ip: data.ip,
-      city: data.city,
-      region: data.region,
-      country: data.country,
-      location: data.loc,
-      org: data.org,
-      browser: navigator.userAgent,
-      time: new Date().toLocaleString(),
-  };
 
-  // Send details to Telegram
-  sendToTelegram(visitorDetails);
-}
+// const telegramToken = "8162239869:AAHbP5UIKiILydKwAjcBHB4poyY3zPuYABc";
+// const chatID = "966551400"; // Replace with your Telegram chat ID
 
-// Send details to Telegram
-async function sendToTelegram(details) {
-  const telegramToken = "8162239869:AAHbP5UIKiILydKwAjcBHB4poyY3zPuYABc"; // Replace with your bot token
-  const chatID = "966551400"; // Replace with your chat ID
+// document.querySelector("form").addEventListener("submit", async (e) => {
+//     e.preventDefault();
+//     const formData = new FormData(e.target);
+//     const message = `
+//         Name: ${formData.get("name")}
+//         Email: ${formData.get("email")}
+//         Message: ${formData.get("message")}
+//     `;
 
+//     await fetch(`https://api.telegram.org/bot${telegramToken}/sendMessage`, {
+//         method: "POST",
+//         headers: { "Content-Type": "application/json" },
+//         body: JSON.stringify({
+//             chat_id: chatID,
+//             text: message,
+//         }),
+//     });
+// });
+
+document.querySelector("#contact-form").addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  const chatID = "8162239869:AAHbP5UIKiILydKwAjcBHB4poyY3zPuYABc"; // Replace with your chat ID
+  const botToken = "966551400"; // Replace with your bot token
   const message = `
-  📍 *New Visitor Detected*:
-  - IP: ${details.ip}
-  - Location: ${details.city}, ${details.region}, ${details.country}
-  - Organization: ${details.org}
-  - Coordinates: ${details.location}
-  - Browser: ${details.browser}
-  - Time: ${details.time}
+      Name: ${document.querySelector("#name").value}
+      Email: ${document.querySelector("#email").value}
+      Message: ${document.querySelector("#message").value}
   `;
 
-  await fetch(`https://api.telegram.org/bot${telegramToken}/sendMessage`, {
+  fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-          chat_id: chatID,
-          text: message,
-          parse_mode: "Markdown",
-      }),
+      body: JSON.stringify({ chat_id: chatID, text: message }),
+  })
+  .then((response) => response.json())
+  .then((data) => {
+      console.log("Message sent to Telegram:", data);
+  })
+  .catch((error) => {
+      console.error("Failed to send message to Telegram:", error);
   });
-}
+});
 
-// Call the tracking function when the page loads
-window.onload = trackVisitor;
+
+
+// async function trackVisitor() {
+//   // Fetch visitor IP details
+//   const response = await fetch("https://ipinfo.io?token=YOUR_IPINFO_TOKEN"); // Replace with your IPInfo token
+//   const data = await response.json();
+
+//   // Collect visitor details
+//   const visitorDetails = {
+//       ip: data.ip,
+//       city: data.city,
+//       region: data.region,
+//       country: data.country,
+//       location: data.loc,
+//       org: data.org,
+//       browser: navigator.userAgent,
+//       time: new Date().toLocaleString(),
+//   };
+
+//   // Send details to Telegram
+//   sendToTelegram(visitorDetails);
+// }
+
+// // Send details to Telegram
+// async function sendToTelegram(details) {
+//   const telegramToken = "8162239869:AAHbP5UIKiILydKwAjcBHB4poyY3zPuYABc"; // Replace with your bot token
+//   const chatID = "966551400"; // Replace with your chat ID
+
+//   const message = `
+//   📍 *New Visitor Detected*:
+//   - IP: ${details.ip}
+//   - Location: ${details.city}, ${details.region}, ${details.country}
+//   - Organization: ${details.org}
+//   - Coordinates: ${details.location}
+//   - Browser: ${details.browser}
+//   - Time: ${details.time}
+//   `;
+
+//   await fetch(`https://api.telegram.org/bot${telegramToken}/sendMessage`, {
+//       method: "POST",
+//       headers: { "Content-Type": "application/json" },
+//       body: JSON.stringify({
+//           chat_id: chatID,
+//           text: message,
+//           parse_mode: "Markdown",
+//       }),
+//   });
+// }
+
+// // Call the tracking function when the page loads
+// window.onload = trackVisitor;
 
 
 
