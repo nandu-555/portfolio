@@ -47,3 +47,66 @@ body {
   #mute-btn:hover { 
     background-color: #5A37A7; /* Equivalent to hover:bg-purple-600 */ 
   }
+
+  /* Style for project box */
+.project-box {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 15px;
+  margin: 10px;
+  text-align: center;
+  background: #0d0a0a;
+  box-shadow: 0 4px 8px rgba(216, 36, 201, 0.1);
+  transition: transform 0.2s;
+}
+
+.project-box:hover {
+  transform: scale(1.05);
+}
+
+/* Profile Image Styling */
+.profile-img {
+  width: 50%;
+  height: 50%;
+  border-radius: 50%;
+  margin-bottom: 10px;
+  margin: 10px auto;
+  border: 2px solid #ddd;
+}
+
+/* Project Title */
+.project-title {
+  font-size: 25px;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+/* Project Description */
+.project-description {
+  font-size: 14px;
+  color: #ffffff;
+  margin: 10px auto;
+}
+
+/* View Project Button */
+.view-project-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px 15px;
+  background: #007BFF;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.view-project-btn i {
+  font-size: 16px;
+}
+
+.view-project-btn:hover {
+  background: #4e88c6;
+}

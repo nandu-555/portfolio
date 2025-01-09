@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
 </head>
 </head>
 <body class="bg-gray-900 text-white relative">
@@ -75,15 +77,23 @@
                         View Project
                     </a>
                 </div>
-                <div class="project-card hover:bg-purple-600 hover:scale-105 transition-transform">
-                    <h3 class="text-2xl font-bold">RTPIS</h3>
-                    <p>Real-time Person Identification System from CCTV Footages using 
+                <div class="project-box hover:bg-purple-600 hover:scale-105 transition-transform">
+                    <div class="project-header">
+                        <!-- Small Profile Image -->
+                        <img src="images/rtpis-bg.png" alt="Profile Image" class="profile-img">
+                    </div>
+                    <h3 class="project-title ">RTPIS</h3>
+                    <p class="project-description">Real-time Person Identification System from CCTV Footages using 
                         Computer Vision" is a sophisticated software solution designed to 
                         analyze live video feeds from CCTV cameras</p>
-                    <a href="https://github.com/nandu-555/Real-Time-Person-Identification-System" class="text-blue-300 hover:underline">
-                        View Project
-                    </a>
+                    <!-- Eye Icon Button -->
+                    <button class="view-project-btn">
+                        <i class="fas fa-eye">
+                            <a href="https://github.com/nandu-555/Real-Time-Person-Identification-System"></a>
+                        </i> 
+                    </button>
                 </div>
+                
                 <div class="project-card hover:bg-purple-600 hover:scale-105 transition-transform">
                     <h3 class="text-2xl font-bold">MultiLink Search</h3>
                     <p>MultiLink Search is a Progressive Web App (PWA) that allows users to open multiple links in new tabs with custom delay settings. It's perfect for productivity and automation.</p>
