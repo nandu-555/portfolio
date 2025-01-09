@@ -154,6 +154,55 @@ document.querySelector("form").addEventListener("submit", async (e) => {
     });
 });
 
+async function trackVisitor() {
+  // Fetch visitor IP details
+  const response = await fetch("https://ipinfo.io?token=YOUR_IPINFO_TOKEN"); // Replace with your IPInfo token
+  const data = await response.json();
+
+  // Collect visitor details
+  const visitorDetails = {
+      ip: data.ip,
+      city: data.city,
+      region: data.region,
+      country: data.country,
+      location: data.loc,
+      org: data.org,
+      browser: navigator.userAgent,
+      time: new Date().toLocaleString(),
+  };
+
+  // Send details to Telegram
+  sendToTelegram(visitorDetails);
+}
+
+// Send details to Telegram
+async function sendToTelegram(details) {
+  const telegramToken = "8162239869:AAHbP5UIKiILydKwAjcBHB4poyY3zPuYABc"; // Replace with your bot token
+  const chatID = "966551400"; // Replace with your chat ID
+
+  const message = `
+  📍 *New Visitor Detected*:
+  - IP: ${details.ip}
+  - Location: ${details.city}, ${details.region}, ${details.country}
+  - Organization: ${details.org}
+  - Coordinates: ${details.location}
+  - Browser: ${details.browser}
+  - Time: ${details.time}
+  `;
+
+  await fetch(`https://api.telegram.org/bot${telegramToken}/sendMessage`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+          chat_id: chatID,
+          text: message,
+          parse_mode: "Markdown",
+      }),
+  });
+}
+
+// Call the tracking function when the page loads
+window.onload = trackVisitor;
 
 
 
