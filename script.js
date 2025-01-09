@@ -129,7 +129,7 @@ document.querySelector("#contact-form").addEventListener("submit", function (e) 
       name: document.querySelector("#name").value,
       email: document.querySelector("#email").value,
       message: document.querySelector("#message").value,
-  })
+  }, "q6nslusI4jIcWcFVp")
   .then((response) => {
       console.log("Email sent successfully!", response.status, response.text);
   })
