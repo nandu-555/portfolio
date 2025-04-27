@@ -23,6 +23,114 @@ muteBtn.addEventListener("click", () => {
 // }
 
 
+// document.addEventListener("DOMContentLoaded", function () {
+//     const text = "B.Tech Graduate | Tech Enthusiast ";
+//     const typewriter = document.getElementById('typewriter');
+//     let index = 0;
+
+//     function type() {
+//         if (index < text.length) {
+//             typewriter.textContent += text.charAt(index);
+//             index++;
+//             setTimeout(type, 100); // speed (in milliseconds)
+//         }
+//     }
+
+//     type();
+// });
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const textArray = ["B.Tech Graduate", "Tech Enthusiast", "Web Developer"];
+    let index = 0;
+    let currentText = '';
+    let isDeleting = false;
+    let charIndex = 0;
+    const typewriter = document.getElementById('typewriter');
+
+    function type() {
+        const currentWord = textArray[index];
+        
+        if (isDeleting) {
+            // Deleting the text
+            currentText = currentWord.substring(0, charIndex);
+            charIndex--;
+        } else {
+            // Typing the text
+            currentText = currentWord.substring(0, charIndex);
+            charIndex++;
+        }
+
+        typewriter.textContent = currentText;
+
+        // If the word is typed completely, start deleting after a small delay
+        if (!isDeleting && charIndex === currentWord.length) {
+            setTimeout(() => {
+                isDeleting = true;
+            }, 1000); // Wait before starting to erase
+        } 
+
+        // If the word is erased completely, move to the next one
+        if (isDeleting && charIndex === 0) {
+            isDeleting = false;
+            index = (index + 1) % textArray.length; // Loop through the array
+        }
+
+        // Set the speed of typing and erasing
+        const typingSpeed = isDeleting ? 50 : 150;
+        setTimeout(type, typingSpeed);
+    }
+
+    type(); // Start typing effect
+});
+
+  const skillsSection = document.getElementById('skills');
+  const skillBars = document.querySelectorAll('.skill-progress');
+  const skillPercentages = document.querySelectorAll('.skill-percentage');
+
+  let skillsAnimated = false;
+
+  function animateSkills() {
+    if (!skillsAnimated && skillsSection.getBoundingClientRect().top < window.innerHeight) {
+      
+      skillBars.forEach((bar, index) => {
+        const width = bar.getAttribute('data-width');
+
+        // Set delay for each skill
+        setTimeout(() => {
+          bar.style.transition = 'width 2s ease-in-out';
+          bar.style.width = width;
+        }, index * 500); // 500ms delay between each skill bar
+      });
+
+      skillPercentages.forEach((counter, index) => {
+        const target = +counter.getAttribute('data-target');
+        let count = 0;
+        const speed = 20; // Speed of counting
+
+        setTimeout(() => {
+          const updateCount = () => {
+            if (count < target) {
+              count++;
+              counter.innerText = `${count}%`;
+              setTimeout(updateCount, speed);
+            } else {
+              counter.innerText = `${target}%`;
+            }
+          };
+          updateCount();
+        }, index * 500); // 500ms delay between each counter
+      });
+
+      skillsAnimated = true;
+    }
+  }
+
+  window.addEventListener('scroll', animateSkills);
+
+
+
+
 // tsParticles Configuration
 particlesJS("particles-js", {
     "particles": {

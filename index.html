@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
 
 </head>
 </head>
@@ -22,14 +24,32 @@
     </button>
 
     <!-- Header -->
-    <header class="relative z-10 bg-gradient-to-r from-blue-500 to-purple-600 text-center py-10 shadow-lg">
+    <!-- <header class="relative z-10 bg-gradient-to-r from-blue-500 to-purple-600 text-center py-10 shadow-lg">
         <div class="container mx-auto">
             
             <img src="images/nandu-profile.png" alt="Nandu A" class="rounded-full mx-auto w-32 h-32 mb-4 border-4 border-white shadow-md">
             <h1 class="text-5xl font-extrabold animate__animated animate__fadeInDown">Nandu A</h1>
             <p class="text-xl mt-2 font-light animate__animated animate__fadeInUp">B.Tech Graduate | Tech Enthusiast</p>
         </div>
+    </header> -->
+
+    <header class="relative z-10 bg-gradient-to-r from-blue-500 to-purple-600 text-center py-16 shadow-2xl overflow-hidden">
+        <!-- Background animated waves -->
+        <div class="absolute inset-0">
+            <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-white/5 to-transparent opacity-20 animate-pulse"></div>
+        </div>
+    
+        <div class="container mx-auto relative z-10">
+            <img src="images/nandu-profile.png" alt="Nandu A" class="rounded-full mx-auto w-32 h-32 mb-4 border-4 border-white shadow-2xl animate__animated animate__fadeInDown glow">
+            
+            <h1 class="text-5xl font-extrabold text-white animate__animated animate__fadeInDown">Nandu A</h1>
+            
+            <p id="typewriter" class="text-xl mt-4 font-light text-white animate__animated animate__fadeInUp"></p>
+            
+
+        </div>
     </header>
+    
 
     <!-- Background Music -->
         <audio id="bg-music" autoplay loop>
@@ -42,53 +62,73 @@
     <main class="container mx-auto px-6 py-10 relative z-10">
         <!-- About Me -->
         <section id="about" class="mb-16 text-center">
-            <h2 class="text-4xl font-bold text-blue-400 mb-6">About Me</h2>
-            <p class="text-gray-300 text-lg">
-                Hello, I am Nandu A, a B.Tech graduate passionate about technology. I enjoy engaging in tech-related activities and exploring innovative solutions.
-            </p><br>
-            
-            <a href="pdf/Resume_nandu.pdf" target="_blank">
-                <button class="view-project-btn">
-                    <i class="fas fa-file-alt"></i> View Resume
-                </button>
-            </a>
-
-                        
-            <!-- <button class="view-project-btn" onclick="openModal()">
-                <i class="fas fa-file-alt"></i> View Resume
-            </button>
-
-            <div id="resumeModal" class="modal">
-                <div class="modal-content">
-                    <span class="close" onclick="closeModal()">&times;</span>
-                    <iframe src="pdf/Resume_nandu.pdf" frameborder="0"></iframe>
+            <h2 class="text-4xl font-bold text-blue-400 mb-6 animate__animated animate__fadeInDown">About Me</h2>
+    
+            <div class="bg-white/2 backdrop-blur-md p-8 rounded-2xl shadow-2xl max-w-3xl mx-auto animate__animated animate__fadeInUp">
+                
+                <p class="text-gray-200 text-lg leading-relaxed">
+                    Hello, I am <span class="text-blue-300 font-semibold">Nandu A</span>, a passionate <span class="text-purple-300">B.Tech Graduate</span> 
+                    deeply enthusiastic about <span class="text-green-300">Technology</span> and <span class="text-yellow-300">Innovation</span>. <br><br>
+                    I love exploring new tech trends like <span class="text-pink-300">AI</span>, <span class="text-indigo-300">Web Development</span>, and <span class="text-red-300">Cybersecurity</span>. 
+                    My goal is to keep learning and building solutions that can make a difference in the digital world. 🚀
+                </p>
+    
+                <div class="mt-8">
+                    <a href="pdf/Resume_nandu.pdf" target="_blank" class="inline-block">
+                        <button class="px-6 py-3 bg-gradient-to-r from-purple-500 to-blue-500 text-white rounded-full shadow-lg transform hover:scale-105 transition-all duration-300">
+                            <i class="fas fa-file-alt mr-2"></i> View Resume
+                        </button>
+                    </a>
                 </div>
-            </div> -->
-
-            
+            </div>
+    
         </section>
 
 
 
 
         <!-- Skills -->
-        <section id="skills" class="mb-16">
-            <h2 class="text-4xl font-bold text-blue-400 mb-6 text-center">My Skills</h2>
-            <div class="space-y-6">
-                <div>
-                    <p class="text-gray-200 font-semibold text-center">Web Development (70%)</p>
-                    <div class="skill-bar animate__animated animate__fadeInLeft">
-                        <span class="web-dev"></span>
-                    </div>
-                </div>
-                <div>
-                    <p class="text-gray-200 font-semibold text-center">Cybersecurity (30%)</p>
-                    <div class="skill-bar animate__animated animate__fadeInLeft">
-                        <span class="cybersecurity"></span>
-                    </div>
-                </div>
-            </div>
-        </section>
+<section id="skills" class="mb-16">
+    <h2 class="text-4xl font-bold text-blue-400 mb-10 text-center animate__animated animate__fadeInDown">My Skills</h2>
+
+    <div class="space-y-10 max-w-4xl mx-auto px-6">
+        <div class="text-center mb-2">
+            <p class="text-gray-200 font-semibold">Web Development <span class="skill-percentage" data-target="60">0%</span></p>
+        </div>
+        <div class="w-full h-4 bg-gray-700 rounded-full overflow-hidden">
+            <div class="h-full bg-gradient-to-r from-blue-400 to-purple-500 skill-progress" data-width="60%"></div>
+        </div>
+        
+        <div class="text-center mb-2">
+            <p class="text-gray-200 font-semibold">Python <span class="skill-percentage" data-target="50">0%</span></p>
+        </div>
+        <div class="w-full h-4 bg-gray-700 rounded-full overflow-hidden">
+            <div class="h-full bg-gradient-to-r from-yellow-400 to-pink-500 skill-progress" data-width="50%"></div>
+        </div>
+        
+        <div class="text-center mb-2">
+            <p class="text-gray-200 font-semibold">Cybersecurity <span class="skill-percentage" data-target="30">0%</span></p>
+        </div>
+        <div class="w-full h-4 bg-gray-700 rounded-full overflow-hidden">
+            <div class="h-full bg-gradient-to-r from-green-400 to-blue-500 skill-progress" data-width="30%"></div>
+        </div>
+        
+
+    </div>
+
+     <!-- Floating Skills Tags -->
+     <div class="mt-10 flex flex-wrap justify-center gap-4 animate__animated animate__fadeInUp animate__delay-1s">
+        <span class="px-4 py-2 bg-blue-500/30 text-blue-200 rounded-full shadow-md hover:scale-110 transition-transform">HTML</span>
+        <span class="px-4 py-2 bg-purple-500/30 text-purple-200 rounded-full shadow-md hover:scale-110 transition-transform">CSS</span>
+        <span class="px-4 py-2 bg-pink-500/30 text-pink-200 rounded-full shadow-md hover:scale-110 transition-transform">JavaScript</span>
+        <span class="px-4 py-2 bg-yellow-500/30 text-yellow-200 rounded-full shadow-md hover:scale-110 transition-transform">Python</span>
+        <span class="px-4 py-2 bg-green-500/30 text-green-200 rounded-full shadow-md hover:scale-110 transition-transform">Cybersecurity</span>
+        <span class="px-4 py-2 bg-red-500/30 text-red-200 rounded-full shadow-md hover:scale-110 transition-transform">AI Enthusiast</span>
+        <span class="px-4 py-2 bg-indigo-500/30 text-indigo-200 rounded-full shadow-md hover:scale-110 transition-transform">Tech Explorer</span>
+    </div>
+
+</section>
+
 
         <!-- Projects -->
         <section id="projects" class="mb-16">
