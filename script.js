@@ -14,6 +14,15 @@ muteBtn.addEventListener("click", () => {
     }
 });
 
+// function openModal() {
+//   document.getElementById('resumeModal').style.display = 'block';
+// }
+
+// function closeModal() {
+//   document.getElementById('resumeModal').style.display = 'none';
+// }
+
+
 // tsParticles Configuration
 particlesJS("particles-js", {
     "particles": {
